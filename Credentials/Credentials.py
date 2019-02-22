@@ -2,7 +2,9 @@
 from dotenv import load_dotenv
 import os
 
+
 class Credentials:
+
     def __init__(self):
         load_dotenv()
         self.key = None

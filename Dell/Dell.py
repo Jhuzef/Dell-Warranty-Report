@@ -18,4 +18,12 @@ class Dell:
             print("Error Connecting to the Dell API.")
             exit()
 
-        return self.request
+        return self.jsonToList(self.request)
+
+    def jsonToList(self, json):
+        list = []
+        list.append(json["AssetWarrantyResponse"][0]["AssetHeaderData"]["ServiceTag"])
+        list.append(json["AssetWarrantyResponse"][0]["ProductHeaderData"]["SystemDescription"])
+        list.append(json["AssetWarrantyResponse"][0]["AssetHeaderData"]["ShipDate"][:10])
+
+        return list
