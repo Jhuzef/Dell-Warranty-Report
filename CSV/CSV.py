@@ -17,7 +17,8 @@ class CSV:
 
     def writeRecord(self, record, filename):
 
-        headers = ['Service Tag', 'Model', 'Shipped Date']
+        headers = ['Service Tag', 'Model', 'Shipped Date', 'ProSupport Expiration Date', 'ProSupport Status',
+                   'Complete Care Expiration Date', 'Complete Care Status']
 
         if os.path.exists(filename):
             with open(filename, 'a', newline='') as file:

@@ -13,9 +13,12 @@ def main():
     credentials = Credentials()
     dell = Dell(credentials)
     csv = CSV()
-    tagList = csv.parseCSV('test.csv')
+    tagList = csv.parseCSV('test2.csv')
 
     for record in tagList:
+        if record == "":
+            continue
+
         data = dell.getWarranty(record[0])
         csv.writeRecord(data, 'output.csv')
 
