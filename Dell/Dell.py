@@ -56,7 +56,7 @@ class Dell:
         completeCare = []
 
         for warranty in warranties:
-            if warranty["ServiceLevelDescription"] == "ProSupport":
+            if warranty["ServiceLevelDescription"].startswith("ProSupport"):
                 proSupport.append(warranty["EndDate"][:10])
             if warranty["ServiceLevelDescription"] == "Complete Care / Accidental Damage":
                 completeCare.append(warranty["EndDate"][:10])
@@ -69,7 +69,7 @@ class Dell:
 
         for idx in range(len(completeCare)):
             completeCare[idx] = datetime.date(int(completeCare[idx][0:4]), int(completeCare[idx][5:7]),
-                                                  int(completeCare[idx][8:10]))
+                                              int(completeCare[idx][8:10]))
         if len(completeCare) == 0:
             completeCare.append("N/A")
 
